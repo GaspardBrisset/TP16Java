@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
-public class TP16Tapas extends Application {
+public class MainApplication extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
