@@ -100,7 +100,7 @@ public class TapasDAO
         try
         {
             Connection co = DatabaseConnecter.getConnexion();
-            PreparedStatement state = co.prepareStatement("SELECT idTapas FROM Tapas INNER JOIN TapasCommande ON Tapas.idTapas=TapasCommande.idTapas WHERE TapasCategorie.idCategorie=?");
+            PreparedStatement state = co.prepareStatement("SELECT Tapas.idTapas FROM Tapas INNER JOIN TapasCommande ON Tapas.idTapas=TapasCommande.idTapas WHERE TapasCommande.idCommande=?");
             state.setInt(1, idCommande); 
 
             ResultSet result = state.executeQuery();

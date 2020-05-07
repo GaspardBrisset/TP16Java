@@ -2,11 +2,12 @@
 package DTO;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Commande 
 {
     private int _idCommande;
-    private LocalDate _dateCommande;
+    private Date _dateCommande;
     private int _idTable;
 
     public int getIdCommande() {
@@ -17,11 +18,11 @@ public class Commande
         this._idCommande = _idCommande;
     }
 
-    public LocalDate getDateCommande() {
+    public Date getDateCommande() {
         return _dateCommande;
     }
 
-    public void setDateCommande(LocalDate _dateCommande) {
+    public void setDateCommande(Date _dateCommande) {
         this._dateCommande = _dateCommande;
     }
 
