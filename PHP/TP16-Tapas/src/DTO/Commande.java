@@ -8,7 +8,7 @@ public class Commande
 {
     private int _idCommande;
     private Date _dateCommande;
-    private int _idTable;
+    private int _idSession;
 
     public int getIdCommande() {
         return _idCommande;
@@ -26,13 +26,11 @@ public class Commande
         this._dateCommande = _dateCommande;
     }
 
-    public int getIdTable() {
-        return _idTable;
+    public int getIdSession() {
+        return _idSession;
     }
 
-    public void setIdTable(int _idTable) {
-        this._idTable = _idTable;
+    public void setIdSession(int _idSession) {
+        this._idSession = _idSession;
     }
-    
-    
 }

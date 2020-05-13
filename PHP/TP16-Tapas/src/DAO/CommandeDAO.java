@@ -2,6 +2,7 @@
 package DAO;
 
 import DTO.Commande;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,7 +29,7 @@ public class CommandeDAO
                 commande = new Commande();
                 commande.setIdCommande(result.getInt("idCommande"));
                 commande.setDateCommande(result.getDate("dateCommande"));
-                commande.setIdTable(result.getInt("idTable"));
+                commande.setIdSession(result.getInt("idSession"));
             }
         }
         catch (SQLException e)
@@ -66,14 +67,14 @@ public class CommandeDAO
     }
     
     
-    public static ArrayList<Commande> findAllCommandesWithSession(int idSession)
+    public static ArrayList<Commande> findCommandesWithSession(int idSession)
     {
         ArrayList<Commande> listeCommandes = new ArrayList<Commande>();
 
         try
         {
             Connection co = DatabaseConnecter.getConnexion();
-            PreparedStatement state = co.prepareStatement("SELECT idCommande FROM Commande WHERE idTable=?");
+            PreparedStatement state = co.prepareStatement("SELECT idCommande FROM Commande WHERE idSession=?");
             state.setInt(1, idSession); 
             
             ResultSet result = state.executeQuery();

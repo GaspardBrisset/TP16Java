@@ -2,6 +2,7 @@
 package DAO;
 
 import DTO.Tapas;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -66,7 +67,7 @@ public class TapasDAO
     }
     
     
-    public static ArrayList<Tapas> findAllTapasWithCategorie(int idCategorie)
+    public static ArrayList<Tapas> findTapasWithCategorie(int idCategorie)
     {
         ArrayList<Tapas> listeTapas = new ArrayList<Tapas>();
         
@@ -118,5 +119,7 @@ public class TapasDAO
         
         return listeTapas;
     }
+    
+    //findTapasWithSession utile ?
     
 }
