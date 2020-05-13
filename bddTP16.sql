@@ -8,13 +8,20 @@ USE bdd_tapas;
 CREATE TABLE IF NOT EXISTS Commande(
 idCommande INT AUTO_INCREMENT,
 dateCommande DATETIME,
-idTable INT,
+idSession INT,
 PRIMARY KEY(idCommande));
 
 CREATE TABLE IF NOT EXISTS TableResto(
-idTable INT AUTO_INCREMENT,
-nbClients INT,
+idTable INT,
 PRIMARY KEY(idTable));
+
+CREATE TABLE IF NOT EXISTS SessionTable(
+idSession INT AUTO_INCREMENT,
+dateDebut DATETIME,
+dateFin DATETIME,
+nbClients INT,
+idTable INT,
+PRIMARY KEY(idSession));
 
 CREATE TABLE IF NOT EXISTS Tapas(
 idTapas INT AUTO_INCREMENT,
@@ -38,7 +45,12 @@ idCategorie INT,
 PRIMARY KEY(idTapas, idCategorie));
 
 ALTER TABLE Commande
-ADD CONSTRAINT Commande_idTable
+ADD CONSTRAINT Commande_idSession
+FOREIGN KEY (idSession)
+REFERENCES SessionTable(idSession);
+
+ALTER TABLE SessionTable
+ADD CONSTRAINT SessionTable_idTable
 FOREIGN KEY (idTable)
 REFERENCES TableResto(idTable);
 
@@ -97,10 +109,15 @@ INSERT INTO TapasCategorie(idTapas, idCategorie) VALUES
 (11, 3), (11, 4),
 (12, 3), (12, 5);
 
-INSERT INTO TableResto(nbClients) VALUES
-(3),(4),(2);
+INSERT INTO TableResto(idTable) VALUES
+(11), (12), (13), (14);
 
-INSERT INTO Commande(dateCommande, idTable) VALUES
+INSERT INTO SessionTable(dateDebut, dateFin, nbClients, idTable) VALUES
+("2020-03-20 11:45:56", "2020-03-20 13:24:43", 3, 11),
+("2020-03-20 11:55:03", "2020-03-20 13:09:21", 4, 12),
+("2020-03-20 12:04:38", "2020-03-20 13:12:54", 2, 13);
+
+INSERT INTO Commande(dateCommande, idSession) VALUES
 ("2020-03-20 11:57:08", 1), 
 ("2020-03-20 12:14:45", 2),
 ("2020-03-20 12:35:49", 1),

@@ -66,7 +66,7 @@ public class CommandeDAO
     }
     
     
-    public static ArrayList<Commande> findAllCommandesWithTable(int idTable)
+    public static ArrayList<Commande> findAllCommandesWithSession(int idSession)
     {
         ArrayList<Commande> listeCommandes = new ArrayList<Commande>();
 
@@ -74,7 +74,7 @@ public class CommandeDAO
         {
             Connection co = DatabaseConnecter.getConnexion();
             PreparedStatement state = co.prepareStatement("SELECT idCommande FROM Commande WHERE idTable=?");
-            state.setInt(1, idTable); //Gérer que sur la meme table les groupes de clients s'enchainent
+            state.setInt(1, idSession); 
             
             ResultSet result = state.executeQuery();
 
