@@ -74,7 +74,7 @@ public class SessionTableDAO
         try
         {
             Connection co = DatabaseConnecter.getConnexion();
-            PreparedStatement state = co.prepareStatement("SELECT idSession FROM SessionTable WHERE idTable=?");
+            PreparedStatement state = co.prepareStatement("SELECT idSession FROM SessionTable WHERE SessionTable.idTable=?");
             state.setInt(1, idTable); 
             
             ResultSet result = state.executeQuery();
