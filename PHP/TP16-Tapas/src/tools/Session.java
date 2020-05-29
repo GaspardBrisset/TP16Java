@@ -4,16 +4,13 @@ package tools;
 
 public class Session 
 {
-    private int nbClients;
+    private static int nbClients;
 
-    public int getNbClients() 
-    {
+    public static int getNbClients() {
         return nbClients;
     }
 
-    public void setNbClients(int nbClients) 
-    {
-        this.nbClients = nbClients;
+    public static void setNbClients(int nbClients) {
+        Session.nbClients = nbClients;
     }
-    
 }

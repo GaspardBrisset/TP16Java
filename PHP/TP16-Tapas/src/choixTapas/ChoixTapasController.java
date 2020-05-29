@@ -7,23 +7,23 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import tools.Session;
 
 
 public class ChoixTapasController implements Initializable
 {
     @FXML
-    private Label label;
+    private Label labelNbClients;
     
     @FXML
     private void handleButtonAction(ActionEvent event)
     {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+        
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        
+        labelNbClients.setText(Integer.toString(Session.getNbClients()));
     }
 }

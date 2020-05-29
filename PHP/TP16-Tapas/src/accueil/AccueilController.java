@@ -20,25 +20,20 @@ public class AccueilController implements Initializable
     private Label labelNumTable;
     
     @FXML
+    private TextField fieldNbClients;
+    
+    @FXML
     private void goToChoixPage(ActionEvent event)
     {
-        Switcher.switchPage("choix");
+        int nbClients = Integer.parseInt(fieldNbClients.getText());
+        Session.setNbClients(nbClients);
+        
+        Switcher.switchPage("choixTapas");
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        TextField fieldNbClients = new TextField();
-        Button buttonCommander = new Button("Commander");
         
-        fieldNbClients.setOnAction(new EventHandler<ActionEvent>()
-        { 
-            @Override 
-            public void handle(ActionEvent e) 
-            { 
-                int nbClients = Integer.parseInt(fieldNbClients.getText());
-                //Session.setNbClients(nbClients);
-            } 
-        });
     }
 }

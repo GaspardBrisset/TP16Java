@@ -26,7 +26,7 @@ public class Switcher
         }
         else
         {
-            nomPage = "/" + nomPage + "/" + nomPage + ".fxml";
+            nomPage = "/" + nomPage + "/" + nomPage + "View.fxml";
         }
 
         try 
