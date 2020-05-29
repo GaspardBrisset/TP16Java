@@ -5,12 +5,20 @@ import tools.Switcher;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import tools.Session;
 
 
 public class AccueilController implements Initializable
 {
+    @FXML
+    private Label labelNumTable;
+    
     @FXML
     private void goToChoixPage(ActionEvent event)
     {
@@ -20,6 +28,17 @@ public class AccueilController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-
+        TextField fieldNbClients = new TextField();
+        Button buttonCommander = new Button("Commander");
+        
+        fieldNbClients.setOnAction(new EventHandler<ActionEvent>()
+        { 
+            @Override 
+            public void handle(ActionEvent e) 
+            { 
+                int nbClients = Integer.parseInt(fieldNbClients.getText());
+                //Session.setNbClients(nbClients);
+            } 
+        });
     }
 }
