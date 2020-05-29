@@ -1,5 +1,5 @@
 
-package choix;
+package choixTapas;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -9,7 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
 
-public class ChoixController implements Initializable
+public class ChoixTapasController implements Initializable
 {
     @FXML
     private Label label;
